@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'video/style.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body style="background: url(https://i.postimg.cc/ZnHTP71s/aircraft-airplane-boat-1575833.jpg)" class="page-holder bg-cover">
+        <div style="margin: 250px;">
+            <center>
+                <div class="form-group">
+            <input class="form-control" placeholder="Enter username..."
+                    type="text"
+                    id="username-input" /><br>
+                    </div>
+            <button class="btn btn-primary" onclick="sendUsername()">Send</button>
+            <button class="btn btn-primary"onclick="startCall()">Start Call</button>
+            </center>
+            <a class="btn btn-primary" href="{% url 'index'%}">Mailbox</a>
+        </div>
+        <div id="video-call-div">
+            <video muted id="local-video" autoplay></video>
+            <video id="remote-video" autoplay></video>
+            <div class="call-action-div">
+                <button class="btn btn-success" onclick="muteVideo()">Mute Video</button>
+                <button class="btn btn-success" onclick="muteAudio()">Mute Audio</button>
+                <a class="btn btn-danger" href="{% url 'sender'%}">EndCall</a>
+            </div>
+        </div>
+        <script src="{% static 'video/sender.js'%}"></script>
+    </body>
+
+</html>
